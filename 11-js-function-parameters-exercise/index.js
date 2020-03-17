@@ -4,6 +4,9 @@
  * create a function "myName" which takes param(string)
  * of your name and console.log "My name is YOUR_NAME"
  */
+function myName(name) {
+    console.log(`My name is ${name}`);
+}
 
 /**
  * Exercise 2
@@ -11,6 +14,9 @@
  * create a function "myAge" which takes param(string)
  * of your age and console.log "I'm YOUR_AGE years old"
  */
+function myAge(number) {
+    console.log(`I'm ${number} years old`);
+}
 
 /**
  * Exercise 3
@@ -20,8 +26,15 @@
  * "I'm from YOUR_CITY, YOUR_COUNTRY"
  */
 
+function aboutMe(city,country) {
+    console.log(`I'm from ${city}, ${country}`);
+}
+
 /**
  * Exercise 4
  * create a function "log12" which will take any 2 numbers
  * as params and log sum.
  */
+function logSum(num1,num2) {
+    console.log(num1 + num2);
+}
