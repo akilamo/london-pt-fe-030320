@@ -10,6 +10,14 @@ const visitors = ["Alex", "Mike", "Sam"]; // Add at least 5 names
  * console.log "Hi {name}, my name is {myName}!"
  */
 
+
+function greetVisitors () {
+    for (let i = 0; i < visitors.length; i++) {
+        console.log('Hi ${visitors[i]}, my name is ${myName}');
+    }
+}
+
+
 // ========================
 const numbers = [2, 123, 13, 1, 6, 84, 23, 12, 45]; // DON'T TOUCH THIS LINE :)
 
@@ -20,6 +28,19 @@ const numbers = [2, 123, 13, 1, 6, 84, 23, 12, 45]; // DON'T TOUCH THIS LINE :)
  * If the item is not present, return a string "Item not found"
  */
 
+function getElementIndex(item) {
+    
+    if(numbers.includes(item)) {
+        for (let i = 0; i < numbers.length; i++) {
+            return numbers.indexOf(item);
+        }
+    } else {
+        return "Item not found";
+    }
+   
+}
+
+
 // ========================
 
 /**
@@ -27,6 +48,11 @@ const numbers = [2, 123, 13, 1, 6, 84, 23, 12, 45]; // DON'T TOUCH THIS LINE :)
  * Create a function {total} that will return sum of all numbers
  * from {numbers} array
  */
+function total () {
+    return numbers.reduce(function(a,b){
+        return a + b
+        }, 0);
+    }
 
 // ========================
 
@@ -37,6 +63,17 @@ const numbersForIndexes = [6, 2, 16, 23, 84, 21, 9, 3]; // DON'T TOUCH THIS LINE
  * Create a function {addIndex} that takes {numbersForIndexes} array,
  * and returns a new array which includes each number + it's index
  */
+function addIndex() {
+
+    let newArray = [];
+    for (let i=0; i < numbersForIndexes.length; i++) {
+        sumNumberIndex = numbersForIndexes[i] + i; 
+        newArray.push(sumNumberIndex);
+    }
+    return newArray;
+}
+
+// =========================
 
 const forLowestNumber = [5, 234, 96, 34, -34, 0, 23]; // DON'T TOUCH THIS LINE :)
 /**
@@ -44,3 +81,7 @@ const forLowestNumber = [5, 234, 96, 34, -34, 0, 23]; // DON'T TOUCH THIS LINE :
  *  create function {lowestNumber} which will return the lowest integer
  * from {forLowestNumber}
  */
+function lowestNumber () {
+    return Math.min.apply(null, forLowestNumber);
+}
+   
