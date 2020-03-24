@@ -52,29 +52,3 @@ function propertyValueString(obj4) {
     
 }
 
-
-/*
- function propertyValueString(object4) {
-    let keyObject = [];
-    let valueObject = [];
-    for (const prop in object4) {
-        keyObject = (Object.keys(object4));
-        keyObject.toUpperCase();
-        valueObject = Object.values(object4);
-        valueObject.toUpperCase();
-        console.log(`${keyObject}: ${valueObject}`);
-     
-    console.log(toString(obj4));
-
-
-
-     let anArray = [];
-    for (const prop in obj4) {
-        anArray.push(`${prop}: ${(obj4[prop])}`); 
-        }
-    console.log((anArray.join(' ')).toUpperCase());
-
-    
-    }
-
- } */
