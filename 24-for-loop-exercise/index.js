@@ -28,7 +28,16 @@ const numbers = [2, 123, 13, 1, 6, 84, 23, 12, 45]; // DON'T TOUCH THIS LINE :)
  * If the item is not present, return a string "Item not found"
  */
 
-function getElementIndex(item) {
+function getElementIndex(number) {
+    for (let i = 0; i < numbers.length; i++) {
+        if(number === numbers[i]) {
+            return i};
+        } 
+        return "Item not found";
+        
+    }
+
+/***function getElementIndex(item) {
     
     if(numbers.includes(item)) {
         for (let i = 0; i < numbers.length; i++) {
@@ -37,9 +46,9 @@ function getElementIndex(item) {
     } else {
         return "Item not found";
     }
-   
+ 
 }
-
+***/ 
 
 // ========================
 
@@ -48,11 +57,24 @@ function getElementIndex(item) {
  * Create a function {total} that will return sum of all numbers
  * from {numbers} array
  */
-function total () {
+
+ function total() {
+     let sumNumbers = 0;
+     for (let i=0 ; i < numbers.length ; i++) {
+         sumNumbers += numbers[i]; 
+     }
+     return sumNumbers;
+ }
+
+
+/***
+ function total () {
     return numbers.reduce(function(a,b){
         return a + b
         }, 0);
     }
+***/
+
 
 // ========================
 
@@ -82,6 +104,14 @@ const forLowestNumber = [5, 234, 96, 34, -34, 0, 23]; // DON'T TOUCH THIS LINE :
  * from {forLowestNumber}
  */
 function lowestNumber () {
-    return Math.min.apply(null, forLowestNumber);
-}
-   
+
+    let lowest = forLowestNumber[0];
+
+    for (i=1; i < forLowestNumber.length; i++) {
+        if(forLowestNumber[i] < lowest) {
+            lowest = forLowestNumber[i];
+        }
+    }
+
+    return lowest;
+ }
