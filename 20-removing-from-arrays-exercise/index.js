@@ -39,4 +39,4 @@ carBrands.splice(4,1);
  *
  * * PS: console.log() the result to see the difference
  */
-carBrands.splice(3,1,"Rolls-Royce");
+carBrands.splice(1,1,"Rolls-Royce");

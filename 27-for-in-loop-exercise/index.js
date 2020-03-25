@@ -4,12 +4,12 @@
  * take object as a param and console log each property in a format
  * "Property name: {propertyName}"
  * */
- 
-function logProperties(object1) {
-    for (const prop in object1) {
-        console.log(`${prop}`);
+
+function logProperties(obj1) {
+    for (const prop in obj1) {
+        console.log((`Property name: ${prop}`)); 
     }
-} 
+}
 
 /**
  * Exercise 2
