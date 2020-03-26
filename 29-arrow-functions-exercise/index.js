@@ -8,13 +8,29 @@
  * create an arrow function {isEqual} which takes 2 numbers as params
  * and return true if they are equal or false if not
  */
-
+const isEqual = (num1, num2) => {
+    if(num1 === num2) {
+        return true;
+    } else {
+        return false;
+    }
+}
+        
 /**
  * Exercise 2
  *
  * create an arrow function {isLessOrEqual0} which takes number as a param
  * and return true if it equals or less than 0 or false if not
  */
+
+const isLessOrEqual0 = num => {
+    if(num <= 0) {
+        return true;
+    } else {
+       return false;
+    }
+}
+
 
 /**
  * Exercise 3
@@ -27,6 +43,11 @@
  * so you will not break your function if you forget to pass params
  */
 
+const timeToSeconds = (hours = 0, minutes = 0) => {
+    return hours*3600 + minutes*60 ;
+}
+
+
 /**
  * Exercise 4
  *
@@ -36,10 +57,33 @@
  * pay then return true otherwise return false
  */
 
+const isGameWorthTheCandle = (probability, prize, pay) => {
+    if(probability * prize > pay) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 /**
  * Exercise 5
  *
  * create an arrow function {longerString} that takes two strings
  * as parameters and returns the string which is longest. If the strings are
  * equal in length return the string "Equal!"
- */
+ * 
+*/
+const longerString = (str1, str2) => {
+   
+   if(str1.length == str2.length) {
+        return "Equal!"; 
+    } else {
+        if(str1.length > str2.length) {
+            return str1;
+        } else {
+            return str2;
+        } 
+    }
+}
+
+   
