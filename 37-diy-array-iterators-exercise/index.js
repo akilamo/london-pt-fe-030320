@@ -9,6 +9,12 @@
  *
  */
 
+ const forEach = (array, callback) => {
+    array.forEach(element => (callback(element, array.indexOf(element))));
+
+ }
+
+
 /**
  * Exercise #2
  *
@@ -23,6 +29,14 @@
  *
  */
 
+const map = (array,callback) => {
+    let newArray = [];
+    array.map(element => {
+        newArray.push(callback(element, array.indexOf(element)));
+    })
+    return newArray;
+}
+
 /**
  * Exercise #3
  *
@@ -35,7 +49,21 @@
  * _only_ the elements for which the
  * callback returned a truthy value.
  *
- */
+ */  
+
+
+const filter = (array, callback) => {
+    let newArray = [];
+    for (let i=0; i < array.length; i) {
+        let element = array[i];
+           if (callback(element, i)) {
+            newArray.push(element);
+        }
+    }
+
+ return newArray;
+ 
+}   
 
 /**
  * Exercise #4
@@ -49,7 +77,30 @@
  * for which the callback returns a
  * truthy value.
  *
- */
+
+==============================
+FOR LOOP (Using indexOf // With if statement) 
+
+const find = (array, callback) => { 
+    for (const element of array) {
+        if (callback(element, array.indexOf(element))) {
+            return element;
+        }     
+    }
+} 
+=================================
+*/
+
+const find = (array, callback) => {
+    for (let i=0; i< array.length; i++) {
+        element = array[i];
+
+        if (callback(element, i)) {
+            return element;
+        }
+    }
+
+}
 
 /**
  * Exercise #5
@@ -64,6 +115,21 @@
  * callback returns a truthy value.
  *
  */
+
+/*const findIndex = (array, callback) => array.findIndex(element => (callback(element, array.indexOf(element)))); */
+
+
+const findIndex = (array, callback) => {
+    for (let i=0; i< array.length; i++) {
+        element = array[i];
+
+        if (callback(element, i)) {
+            return i;
+        }
+    }
+
+}
+
 
 /**
  * Exercise #6
@@ -80,6 +146,9 @@
  *
  */
 
+const every = (array, callback) => array.every(element => (callback(element, array.indexOf(element))));
+
+
 /**
  * Exercise #7
  *
@@ -94,6 +163,7 @@
  * a truthy value.
  *
  */
+const some = (array, callback) => array.some(element => (callback(element, array.indexOf(element))));
 
 /**
  * Exercise #8
@@ -116,3 +186,16 @@
  * value.
  *
  */
+
+const reduce = (array, callback, initValue = 0) => {
+
+    let cumulative = initValue;
+
+    for (let i = 0; i<array.length; i++) {
+        let element = array[i];
+       cumulative = callback(cumulative, element,i);
+      
+    }
+return cumulative;
+
+}
