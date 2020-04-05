@@ -31,10 +31,12 @@
 
 const map = (array,callback) => {
     let newArray = [];
-    array.map(element => {
-        newArray.push(callback(element, array.indexOf(element)));
-    })
-    return newArray;
+    for (let i=0; i<array.length; i++) {
+        let element = array[i];
+        let newElement = callback(element, i);
+        newArray.push(newElement);
+    }
+return newArray;
 }
 
 /**
@@ -54,7 +56,7 @@ const map = (array,callback) => {
 
 const filter = (array, callback) => {
     let newArray = [];
-    for (let i=0; i < array.length; i) {
+    for (let i=0; i < array.length; i++) {
         let element = array[i];
            if (callback(element, i)) {
             newArray.push(element);
@@ -93,8 +95,7 @@ const find = (array, callback) => {
 
 const find = (array, callback) => {
     for (let i=0; i< array.length; i++) {
-        element = array[i];
-
+        let element = array[i];
         if (callback(element, i)) {
             return element;
         }
@@ -121,8 +122,7 @@ const find = (array, callback) => {
 
 const findIndex = (array, callback) => {
     for (let i=0; i< array.length; i++) {
-        element = array[i];
-
+        let element = array[i];
         if (callback(element, i)) {
             return i;
         }
@@ -146,7 +146,17 @@ const findIndex = (array, callback) => {
  *
  */
 
-const every = (array, callback) => array.every(element => (callback(element, array.indexOf(element))));
+/* const every = (array, callback) => array.every(element => (callback(element, array.indexOf(element)))); */
+
+ const every = (array, callback) => {
+    for (let i = 0; i < array.length; i++) {
+        let element = array[i];
+        if (!(callback(element, i))) {
+            return false
+        }
+    }
+    return true;
+}
 
 
 /**
@@ -163,7 +173,19 @@ const every = (array, callback) => array.every(element => (callback(element, arr
  * a truthy value.
  *
  */
-const some = (array, callback) => array.some(element => (callback(element, array.indexOf(element))));
+/* const some = (array, callback) => array.some(element => (callback(element, array.indexOf(element)))); */
+
+
+ const some = (array, callback) => {
+    for (let i = 0; i < array.length; i++) {
+        let element = array[i];
+        if (callback(element, i)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 
 /**
  * Exercise #8
