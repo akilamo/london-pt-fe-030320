@@ -80,7 +80,6 @@ const createTimerEl = (number) => {
 };
 
 
-
 //add up to 5 div timers
 addCounterEl.addEventListener("click", () => {
   if (timersCount < 5) {
