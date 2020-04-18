@@ -12,6 +12,24 @@
  * Ex: generateFibonacci(5) // return [0, 1, 1, 2, 3];
  */
 
+const generateFibonacci = (arraylength) => {
+
+    let array = [];
+
+  if (arraylength === 1) {
+    array.push(0);
+  } else if (arraylength === 2) {
+    array.push(0, 1);
+  } else {
+    array.push(0, 1);
+    for (let i = 2; i < arraylength; i++) {
+      array.push(array[i - 2] + array[i - 1]);
+    }
+  }
+  return array;
+};
+
+
 
 /**
  * Exercise 2
@@ -25,4 +43,13 @@
  *
  * Ex: isPowerOf(27, 3) // return true;
  */
+
+
+ const isPowerOf = (number, primeNumber) => {
+   if (primeNumber ** primeNumber === number) {
+     return true;
+   } else {
+     return false;
+   }
+ };
 
