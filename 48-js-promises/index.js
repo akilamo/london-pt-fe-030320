@@ -75,22 +75,3 @@ const ingredients = [
     });
 
 
-
-
-
-
- // asyncCookMeal = (ingredientsToCook) => 
-
-  // new Promise((resolve) => {
-  //   const ingredientNames = ingredientsToCook.map((ingredient) => ingredient.name)
-  //   const totalTime = ingredientsToCook.map((ingredient) => ingredient.time).reduce((a,b) => a+b)
-   
-  //   ingredientsToCook.forEach((ingredient) => {
-  //   asyncCookIngredient(ingredient)
-  //   })
-
-  //   setTimeout(() => {
-  //     resolve({ingredientNames, totalTime});
-  //   }, totalTime)
-  // })
-    

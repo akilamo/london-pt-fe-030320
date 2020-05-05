@@ -40,7 +40,7 @@ form.addEventListener("submit", (event) => {
 })
 
 
-document.querySelector('input').addEventListener('click', () => {
+input.addEventListener('focus', () => {
     input.value = "";
     result.innerHTML = ""
 })
