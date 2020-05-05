@@ -20,6 +20,16 @@ const ingredients = [
  * {ingredient} object
  *
  */
+ 
+    const asyncCookIngredient = (ingredient) =>
+      new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(ingredient);
+        }, ingredient.time);
+      });
+
+    // asyncCookIngredient(ingredients);
+
 
 
 /**
@@ -41,3 +51,46 @@ const ingredients = [
  * }
  *
  */
+
+
+  asyncCookMeal = (ingredientsToCook) =>
+    new Promise((resolve) => {
+      const ingredientNames = ingredientsToCook.map(
+        (ingredient) => ingredient.name
+      );
+      const totalTime = ingredientsToCook
+        .map((ingredient) => ingredient.time)
+        .reduce((a, b) => a + b);
+
+      let start = Date.now();
+
+      ingredientsToCook.forEach((ingredient) => {
+        asyncCookIngredient(ingredient);
+
+        setTimeout(() => {
+          if (totalTime + start > Date.now())
+            resolve({ ingredientNames, totalTime });
+        }, ingredient.time);
+      });
+    });
+
+
+
+
+
+
+ // asyncCookMeal = (ingredientsToCook) => 
+
+  // new Promise((resolve) => {
+  //   const ingredientNames = ingredientsToCook.map((ingredient) => ingredient.name)
+  //   const totalTime = ingredientsToCook.map((ingredient) => ingredient.time).reduce((a,b) => a+b)
+   
+  //   ingredientsToCook.forEach((ingredient) => {
+  //   asyncCookIngredient(ingredient)
+  //   })
+
+  //   setTimeout(() => {
+  //     resolve({ingredientNames, totalTime});
+  //   }, totalTime)
+  // })
+    
