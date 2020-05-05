@@ -28,3 +28,21 @@ const input = document.querySelector("input");
  * 3. focus on input, clearing my previous input and hiding {.result} element
  */
 
+const getResponse = url => {
+    fetch(url).then((response) => response.text()).then((data) => bodyResponse(data))
+}
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const inputURL = input.value;
+    getResponse(inputURL)
+})
+
+input.addEventListener('focus', () => {
+    input.value = "";
+    result.innerText = ""
+})
+
+const bodyResponse = (response) => {
+    result.innerText = response
+}
