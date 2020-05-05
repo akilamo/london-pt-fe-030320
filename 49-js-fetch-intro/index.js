@@ -39,26 +39,30 @@ form.addEventListener("submit", (event) => {
      getResponse(inputURL)
 })
 
-
 input.addEventListener('focus', () => {
     input.value = "";
     result.innerHTML = ""
 })
 
+const validLink = (link) => {
+    result.innerHTML = `Valid link! <a href="${link} target="_blank">Link</a>`
+    result.style.color = "green"
+}
+
+const errorMsg = (message) => {
+    result.innerHTML = `Request failed with status code: ${message}`;
+    result.style.color = "red"
+}
+
 
 const getResponse = (url) => {
     fetch(url).then((response) =>{
       if (response.ok) {
-        result.innerHTML = `Valid link! <a href="${url} target="_blank">Link</a>`
-        // validLink(url)
+        validLink(url)
       } else {
-        result.innerHTML = `Request failed with status code: ${response.status}`;
+        errorMsg(response.status)
       }
- 
    });
 }
     
 
-// const validLink = link => {
-//     result.innerHTML = `Valid link! <a href="${link} target="_blank">Link</a>`
-// }
