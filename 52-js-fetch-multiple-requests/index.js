@@ -25,3 +25,44 @@ let members = [];
   *     <p class="culture"><strong>Culture: </strong>Hobbit</p>
   * </li>
  */
+
+
+const displayMember = (member) => {
+  const li = document.createElement("li");
+  li.innerHTML = `   <p class="name">${member.name}</p>
+	  <p class="life">${member.born} – ${member.died}</p>
+	  <p class="gender"><strong>Gender: </strong>${member.gender}</p>
+	  <p class="culture"><strong>Culture: </strong>${member.culture}</p>`;
+  resultEl.appendChild(li);
+};
+
+const displayAll = async (members) => {
+  resultEl.innerHTML = "";
+  members.forEach((member) => displayMember(member));
+};
+
+const fetchSwornMembers = async () => {
+  const getData = await fetch(houseURL).then((response) => response.json());
+  getData.swornMembers.forEach(async (memberURL) => {
+    const swornMember = await fetch(memberURL).then((response) =>
+      response.json()
+    );
+    members.push(swornMember);
+    displayAll(members);
+  });
+};
+
+searchEl.addEventListener("keyup", () => {
+  const filteredMembers = members.filter((member) => {
+    let query = searchEl.value;
+    if (member.name.toLowerCase().match(query)) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  displayAll(filteredMembers);
+});
+
+
+fetchSwornMembers();
