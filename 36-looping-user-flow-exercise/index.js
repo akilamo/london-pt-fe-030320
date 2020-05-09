@@ -55,7 +55,6 @@ function menuBooks() {
 	  console.log(`${index + 1}: ${selectedBook}`);
 	});
 
-
 	const choice = readlineSync.keyInSelect(books, 'Select a book', {cancel: 'Main Menu'});
 	/* const choice = readlineSync.question("Choose a book from the list: "); */
 	const choiceAsNumber = parseInt(choice);

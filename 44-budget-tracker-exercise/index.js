@@ -48,40 +48,19 @@ const object = {}
 //Select quantities by product
 const selectOption = (id) => {
     const select_id = document.querySelector('#id' + id);
-    console.log(select_id);
+    // console.log(select_id);
 
     let quantity = select_id.value
     let price = productList[id - 1].price
     let each_total = quantity * price
-
-    console.log(each_total)
+    // console.log(each_total)
 
     object[id] = each_total //{1:12.99}
-    console.log(object);
+    // console.log(object);
     balance();
 
 }
   
-
-// object{}
-// {1:12.99, 2:4.55}
-
-// 12.99 + 4.55 + 
-// total value
-// balance = budget - totalvalue
-
-
-///BUDGET UPDATES TBD
-
-//sum of obj values
-
-// const totalPrice = () => {
-//     let totalToPay = 0;
-//     for (let key in object) {
-//     totalToPay += object[key];
-//     return totalToPay;
-//   }
-// };
 
 
 const balance = () => {
@@ -92,34 +71,41 @@ const balance = () => {
 
   let balance = totalBudget - totalToPay;
 
-
-  if(totalBudget < totalToPay) {
-    errorMsg()
-    
-
+  if (totalBudget < totalToPay) {
+    errorMsg();
   } else {
-   
     remainingBudget.innerText = `£${balance.toFixed(2)}`;
   }
-} 
-
+}; 
 
 
 
   const errorMsg = () => {
+    const errorElement = document.createElement("div");
+    const cart = document.querySelector("#cart");
 
-    const errorElement = document.createElement('div');
-    const cart = document.querySelector('#cart');
-    errorElement.classList.add('error');
-    errorElement.innerText = 'Not enough money left for that!';
-
+    errorElement.classList.add("error");
+    errorElement.innerText = "Not enough money left for that!";
     cart.appendChild(errorElement);
-
-  }
+  };
 
 
   
 
+
+
+  /*
+//   Notes /////
+
+object{}
+{1:12.99, 2:4.55}
+
+12.99 + 4.55 + 
+total value
+balance = budget - totalvalue
+
+
+*/
 
 
 
