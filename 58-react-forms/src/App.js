@@ -32,7 +32,18 @@ import UserForm from "./Components/UserForm/UserForm";
  */
 
 const App = () => {
-	
+  const [inputText, setInputText] = useState("");
+
+  const handleNameChange = (event) => setInputText(event.target.value)
+
+  return (
+    <div>
+      <h1>{inputText}</h1>
+      <input type="text" className="first" value={inputText} onChange={handleNameChange} />
+      <input type="text" className="second" value={inputText} onChange={handleNameChange} />
+    <UserForm />    
+    </div>
+  );
 };
 
 export default App;
