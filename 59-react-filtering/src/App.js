@@ -18,10 +18,41 @@ import "./App.css";
  */
 
 const App = () => {
-	return (
-		<div className="App">
-		</div>
-	);
+  const [contacts, setContacts] = useState([]);
+  const [selectedContacts, setSelectedContacts] = useState("All");
+
+  fetch("http://localhost:3000/contacts").then((res) =>
+    res.json().then((res) => setContacts(res))
+  );
+
+  const handleChange = (event) => {
+    setSelectedContacts(event.target.value);
+  };
+
+  const contactsToRender =
+    selectedContacts === "All"
+      ? contacts
+      : contacts.filter((contact) => contact.name.match(selectedContacts));
+
+  return (
+    <div className="App">
+      <label>
+        <input
+          type="text"
+          placeholder="Type in your query"
+          onChange={handleChange}
+        />
+      </label>
+      <ul>
+        {contactsToRender.map((contact) => (
+          <li>
+            <p>{contact.name}</p>
+            <p className={"company"}>{contact.name}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default App;
