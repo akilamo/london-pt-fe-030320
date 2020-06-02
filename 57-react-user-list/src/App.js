@@ -17,7 +17,46 @@ import React, {useState} from "react";
  */
 
 function App() {
+  const [users, setUsers] = useState([]);
 
+  const URL = "https://randomuser.me/api/";
+  const fetchUsers = async () => {
+    return await fetch(URL)
+      .then((response) => response.json())
+      .then((data) => data)
+      .then((user) => user.results)
+      .then((userIndex) => userIndex[0])
+      .then((userName) => userName.name)
+      .catch((error) => error);
+  };
+
+  const addUser = async () => {
+    const newUser = await fetchUsers();
+    setUsers([...users, newUser]);
+    console.log(newUser);
+  };
+
+  const removeUser = (user) => setUsers(users.filter((u) => u !== user));
+
+  return (
+    <div>
+      <button className="newUser" onClick={() => addUser()}>
+        Username
+      </button>
+      <ul>
+        {users.map((user) => (
+          <>
+            <li>
+              {user.first} {user.last}
+            </li>
+            <button className="removeUser" onClick={() => removeUser(user)}>
+              Remove user
+            </button>
+          </>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default App;
