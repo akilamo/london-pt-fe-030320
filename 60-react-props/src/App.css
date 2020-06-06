@@ -1,0 +1,13 @@
+#root{
+    display: grid;
+    /* margin: 0 auto; */
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1em;
+}
+
+ul{
+    list-style-type: none;
+    border: 1px solid black;
+    width: auto;
+    padding-right: 2em;
+}
