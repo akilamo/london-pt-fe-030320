@@ -21,7 +21,7 @@ const UserForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if(user.age !==0) { 
+    if(user.firstName && user.lastName && user.gender) { 
       postUser(user);
     }
       setUser({
@@ -75,7 +75,7 @@ const UserForm = () => {
           <option value="female">Female</option>
         </select>
 
-        <button type="submit" onSubmit={handleSubmit}>
+        <button type="submit">
           Submit
         </button>
       </form>

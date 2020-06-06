@@ -14,6 +14,10 @@ import UserCard from "./components/UserCard/UserCard";
 
 const App = () => {
 
+fetch('http://localhost:3000/contacts').then((res) => res.json()).then((res) => console.log(res))
+
+
+
 };
 
 export default App;
