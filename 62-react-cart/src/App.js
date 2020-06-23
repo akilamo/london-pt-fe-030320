@@ -30,8 +30,18 @@ const initialStock = [
 const App = () => {
   const [stock, setStock] = useState([...initialStock]);
   const [cart, setCart] = useState([]);
+  const stockStatus = [...stock];
+  const cartStatus = [...cart];
 
-  return <div className="app">App</div>;
+
+
+
+  return (
+      <div className="app">
+      <Store stock={stock} addToCart={addToCart} />
+      <Cart cart={cart} changeCart={changeCart} />
+    </div>
+  );
 };
 
 export default App;
