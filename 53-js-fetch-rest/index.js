@@ -50,10 +50,10 @@ const postComment = async (newComment) => {
       if (response.ok) {
         return response.json();
       } else {
-        throw "Oops something went wrong!";
+        throw new Error("Oops something went wrong!");
       }
     })
-    .catch((error) => error);
+    .catch(() => "Oops something went wrong!");
 };
 
 /**
@@ -86,10 +86,10 @@ const patchComment = async (comment, newCommentBody) => {
       if (response.ok) {
         return response.json();
       } else {
-        throw `Oops we couldn't update that!`;
+        throw new Error ("Oops we couldn't update that!");
       }
     })
-    .catch((error) => error);
+    .catch(() => "Oops we couldn't update that!");
 };
   
 
@@ -120,10 +120,10 @@ const putComment = async (comment) => {
       if (response.ok) {
         return response.json();
       } else {
-        throw "Oops we couldn't update that!";
+        throw new Error ("Oops we couldn't update that!");
       }
     })
-    .catch((error) => error);
+    .catch(() => "Oops we couldn't update that!");
 };
 
 /**
@@ -143,8 +143,8 @@ const deleteComment = async (comment) => {
       if (response.ok) {
         return "Deleted!";
       } else {
-        throw "That could not be deleted!";
+        throw new Error("That could not be deleted!");
       }
     })
-    .catch((error) => error);
+    .catch(() => "That could not be deleted!");
 };
