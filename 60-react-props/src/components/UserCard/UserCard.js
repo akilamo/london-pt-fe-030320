@@ -6,10 +6,9 @@ const UserCard = (props) => {
   return (
     <div className="card">
       <ul key={id}>
-        <li>Name: {name}</li>
-        <li>Email: {email}</li>
+        <li>name: {name}</li>
+        <li>email: {email}</li>
       </ul>
-
     </div>
   );
 };
